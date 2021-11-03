@@ -9,14 +9,14 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/kelime_card"
-        app:cardBackgroundColor="#FFEB3B"
         android:layout_width="match_parent"
-        android:layout_height="35dp" >
+        android:layout_height="37dp"
+        app:cardBackgroundColor="#000000">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:background="#FFEB3B"
-            android:layout_height="match_parent">
+            android:layout_height="35sp"
+            android:background="#FFEB3B">
 
 
             <TextView
