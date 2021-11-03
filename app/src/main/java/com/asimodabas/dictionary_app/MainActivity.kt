@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.Menu
 import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.info.sqlitekullanimihazirveritabani.DatabaseCopyHelper
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
@@ -16,6 +17,8 @@ class MainActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        veritabaniKopyala()
 
         toolbar.title = "Dictionary App"
         setSupportActionBar(toolbar)
@@ -41,8 +44,8 @@ class MainActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.toolbar_menu, menu)
 
-        val item= menu?.findItem(R.id.action_ara)
-        val searchView=item?.actionView as SearchView
+        val item = menu?.findItem(R.id.action_ara)
+        val searchView = item?.actionView as SearchView
         searchView.setOnQueryTextListener(this)
 
         return super.onCreateOptionsMenu(menu)
@@ -62,6 +65,19 @@ class MainActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
             Log.e("Harf girdikçe", newText)
         }
         return true
+    }
+
+    fun veritabaniKopyala() {
+
+        val copyHelper = DatabaseCopyHelper(this)
+        try {
+            copyHelper.createDataBase()
+            copyHelper.openDataBase()
+
+        } catch (e: Exception) {
+            e.printStackTrace()
+
+        }
     }
 
 }
