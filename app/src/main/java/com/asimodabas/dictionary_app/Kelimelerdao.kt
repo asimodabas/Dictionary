@@ -26,7 +26,7 @@ class Kelimelerdao {
 
         val kelimelerListe = ArrayList<Kelimeler>()
         val db = vt.writableDatabase
-        val c = db.rawQuery("SELECT * FROM kelimeler WHERE ingilizce like '½$aramaKelime'", null)
+        val c = db.rawQuery("SELECT * FROM kelimeler WHERE ingilizce like '%$aramaKelime%'", null)
 
         while (c.moveToNext()) {
             val kelime = Kelimeler(

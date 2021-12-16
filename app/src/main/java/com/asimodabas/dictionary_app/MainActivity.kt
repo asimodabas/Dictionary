@@ -76,7 +76,6 @@ class MainActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
         kelimelerListe = Kelimelerdao().aramaYap(vt, aramaKelime)
         adapter = KelimelerAdapter(this, kelimelerListe)
         rv.adapter = adapter
-
     }
 
 }
